@@ -26,7 +26,7 @@ const firstNonRepeatedCharacter = function(string) {
     let a = string.charAt(i); // a = 문자열에서 i번째에 있는 문자
     if (string.indexOf(a) === i && string.indexOf(a, i + 1) === -1) { // a의 인덱스가 i일 때, i + 1 이 a가 아니면(-1) a를 반환
       return a;
-    } // break를 하지 않아도 되는가
+    } // break를 하지 않아도 되는가, 꼭 필요한 것은 아니라?
   }
     return null;
 };

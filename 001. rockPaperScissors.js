@@ -20,18 +20,18 @@
 
 const rockPaperScissors = function() {
 
-let game = ["rock", "paper", "scissors"]; // 하나의 경우를 담은 배열
-let allGame = []; // 전체 경우를 담을 배열
+  let game = ["rock", "paper", "scissors"]; // 하나의 경우를 담은 배열
+  let allGame = []; // 전체 경우를 담을 배열
 
-for ( let i = 0; i < game.length; i++) {
-  for (let j = 0; j < game.length; j++) {
-    for (let k = 0; k < game.length; k++) {
-      let temp = [];
-      temp.push(game[i], game[j], game[k]) // 하나씩 차례차례 넣어지기 때문에 겹치지 않는다
-      allGame.push(game[i], game[j], game[k])
+  for ( let i = 0; i < game.length; i++) {
+    for (let j = 0; j < game.length; j++) {
+      for (let k = 0; k < game.length; k++) {
+        let temp = [];
+        temp.push(game[i], game[j], game[k]) // 하나씩 차례차례 넣어지기 때문에 겹치지 않는다
+        allGame.push(game[i], game[j], game[k])
+      }
     }
   }
-}
   return allGame;
 };
 
@@ -42,12 +42,12 @@ for ( let i = 0; i < game.length; i++) {
 
 const rockPaperScissors = function(numOfGames) {
 
-    if (numOfGames === 0) {
-        return [];
-    }
+  if (numOfGames === 0) {
+    return [];
+  }
 
-    let game = ["rock", "paper", "scissors"];
-    let allGame = [];
+  let game = ["rock", "paper", "scissors"];
+  let allGame = [];
 
 
    //
