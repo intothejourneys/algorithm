@@ -1,3 +1,4 @@
+👉 
 // 세 판의 가위 바위 보를 하는 동안 낼 수 있는 모든 경우를 return하는 함수를 작성하세요.
 // 결과는 다음과 같을 것입니다.
 
@@ -9,6 +10,7 @@
 //     // ...etc ...
 //   ]
 
+👉 
 // 한 사람 기준,
 // 한 판을 할 경우, 경우의 수는 3이다. 가위 또는 바위 또는 보.
 // 판 수가 늘어날 수록 제곱을 해주면 된다.
@@ -18,6 +20,7 @@
 
 // 재귀 함수
 
+👉 
 const rockPaperScissors = function() {
 
   let game = ["rock", "paper", "scissors"]; // 하나의 경우를 담은 배열
@@ -35,11 +38,13 @@ const rockPaperScissors = function() {
   return allGame;
 };
 
+👉
 // Advanced: 변수로 전달하는 판수에 맞는 정답을 return 하도록 작성한 함수를 바꿔 보세요.
 
 // rockPaperScissors(5);
 // [['rock', 'rock', 'rock', 'rock', 'rock'], etc...]
 
+👉
 const rockPaperScissors = function(numOfGames) {
 
   if (numOfGames === 0) {

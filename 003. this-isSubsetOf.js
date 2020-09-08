@@ -1,3 +1,14 @@
+👉
+// 특정 배열이 매개변수로 전달되는 배열의 부분집합인지를 판단하는 메소드를 만드세요. 비교 대상인 두 배열 모두 문자열로 이루어졌다고 가정합니다.
+
+// let a = ['commit','push']
+// a.isSubsetOf(['commit','rebase','push','blame']) // true
+// 참고 : 배열 내의 중복값은 무시하세요.
+
+// let b = ['merge','reset','reset']
+// b.isSubsetOf(['reset','merge','add','commit']) // true
+
+👉
 // 두 배열을 각 배열당 겹치는 요소 없이 새 배열에 넣어준다
 // 특정 배열의 길이가 매개변수 배열의 길이보다 길면 false
 // 매개변수 배열이 includes(a[i])하면 true
@@ -17,6 +28,7 @@
 // }
 //   return false;
 
+👉
 Array.prototype.isSubsetOf = function(array) { // Array prototype constructor
 
   let arrayContains = function(array, item) { // 
