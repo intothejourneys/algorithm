@@ -1,3 +1,4 @@
+👉
 // 주어진 Tree 클래스에 DFSelect 메소드를 구현하세요.
 // DFSelect 매소드의 요구사항은 아래와 같습니다.
 
@@ -29,14 +30,16 @@ let Tree = function(value) {
     this.value = value; // 노드가 가지는 값(주어진 값)
     this.children = []; // 노드의 자식
 };
-  
+
+👉
 // 깊이 우선 방식, 트리를 왼쪽부터 아래로 쭉 내려가며 찾는다, 더이상 내려갈 것이 없을 때 옆으로 옮겨간다
 // 탐색하며 각 노드에서 filter를 호출하고 값이 true이면 해당 노드를 1차원 배열에 넣는다
 // 다 탐색한 후 해당 배열을 반환한다
   
 // 그 과정만 정의해 주면 된다
 // filter가 무엇을 필터링 하는지는 여기서 다루지 않는다
-  
+
+👉
 Tree.prototype.DFSelect = function(filter) { // 클래스, 필터를 매개변수로 받는다
   
   let filtered = []; // 1차원 배열
