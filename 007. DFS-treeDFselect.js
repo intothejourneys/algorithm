@@ -106,4 +106,43 @@ Tree.prototype.removeChild = function(child) {
   throw new Error('That node is not an immediate child of this tree');
   }
 };
-  
+
+// 👉
+// // value를 저장하는 기본적인 tree입니다.
+
+// let Tree = function(value) {
+//   this.value = value; // 노드가 가지는 값(주어진 값)
+//   this.children = []; // 노드의 자식
+// };
+
+// // 깊이 우선 방식으로 이동
+// // 각 노드마다 filter 함수를 호출하여 조건에 맞는지 여부를 확인
+// // 조건에 맞는 노드들을 배열에 넣어 반환
+
+// Tree.prototype.DFSelect = function(filter) {
+//   // 너무 깊이 생각하지말고 명시적으로 생각해 볼 것
+//   // 아래 이미 작성된 코드들을 참고하여 비슷한 방식을 생각해 볼 것
+
+//   let filtered = []; // 조건에 맞는 노드들을 넣어줄 1차원 배열
+
+//   function truenode(node, depth) {
+//     if (filter(node.value, depth)) { // === true
+//       filtered.push(node.value)
+//     } // node를 순회하지만 node의 값을 확인하고 넣는다
+//     if (node.children.length !== 0) { // 노드에 자식이 있다면
+//       for (let i = 0; i < node.children.length; i++) {
+//         truenode(node.children[i], depth + 1) // 재귀
+//       }
+//     }
+//   }
+//   truenode(this, 0); // 이게 도대체 무슨 뜻이지? // 이걸 해야 아래 3개가 통과한다 // 시작점을 적용해주는 것 같기는 한데.. 왜 필요하지?
+//   // 아하.. 지금 prototype을 정의하는 함수를 만든거니까 당연히 그 안에서 실행을 해 주어야지.. 근데 this는 왜일까?
+//   // let Tree = function(value) {
+//   // this.value = value; // 노드가 가지는 값(주어진 값)
+//   // this.children = []; // 노드의 자식
+//   // };
+//   // DFSelect should return all nodes in the tree if filter always returns true
+//   // DFSelect should return all nodes passing the filter
+//   // DFSelect should allow filtering by depth
+//   return filtered;  
+// }
