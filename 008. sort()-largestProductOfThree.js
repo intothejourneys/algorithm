@@ -54,17 +54,18 @@
 👉
 // 메소드를 만든다, 안에서 쓰인 sort() 메소드는 숫자들을 오름차순 정렬한다
 // 따라서 sortAscending() 메소드는 배열 안의 숫자들을 오름차순 정렬하는 메소드가 된다
-Array.prototype.sortAscending = function() { // 생성자에서 this에 유의
-    this.sort(function(a, b) {
-      return a - b;
+
+Array.prototype.sortAscending = function() { // 오름차순으로 정렬하는 배열 프로토타입 함수
+    this.sort(function(a, b) { // 생성자에서 this에 유의, 주어진 배열을 뜻한다?
+      return a - b; // 두개의 숫자가 인자로 들어오면 a 에서 b 방향으로 오름차순 정렬
     });
-    return this;
+    return this; // 정렬된 배열을 반환?
   };
   
   var largestProductOfThree = function(array) {
   
     array = array.slice().sortAscending(); // 배열 안의 숫자들을 오름차순 정렬한 새로운 배열
-                                           // 왜 굳이 같은 배열에 slice()를 써서 복제해 주었는지 모르겠다
+                                           // 왜 굳이 같은 배열에 slice()를 써서 복제해 주었는지 모르겠다, 그래도 새로운 배열이니까!
   
     var secondFromLast = array[array.length - 2], // 두번째로 큰 숫자(인덱스이므로 -2)
         thirdFromLast = array[array.length - 3]; // 세번째로 큰 숫자
