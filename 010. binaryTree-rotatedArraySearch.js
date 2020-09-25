@@ -9,6 +9,7 @@
 👉
 // 정렬된 배열과 회전시킨 배열과 비정렬된 배열이 뭐가 다를까?
 // 어차피 배열에서 요소 찾는 것은 같은 로직 아닌가?
+// 아니다 일단 정렬(회전 포함)은 이진으로 할 수 있으니 비정렬과는 다르다!
 
 //   for (let i = 0; i < rotated.length; i++) {
 //     if (rotated[i] === target) {
@@ -16,7 +17,7 @@
 //     }
 //   }
 //   return null;
-// }; // 이렇게 해도 통과는 하지만 시간 복잡도가 O(n)이다
+// }; // 이렇게 해도 통과는 하지만 시간 복잡도가 O(n)이다 // 즉 이진이 아니다, 이진은 시간 복잡도가 O(log n)이 된다
 
 👉
 // 정렬되지 않은 배열은 이진 탐색이 불가능하다
@@ -32,32 +33,64 @@
 // 즉, 원소가 8개일 때 단순 탐색으로는 8번의 탐색이 필요하지만, 이진 탐색으로는 3번의 탐색만이 필요하다(log2^8)
 
 👉
+// const rotatedArraySearch = function (rotated, target) { // rotated는 로테이션 된 배열, target은 찾는 element
+
+// let l = 0; // 첫 element
+// let r = rotated.length - 1; // 마지막 element
+
+// while(l <= r) {
+//   let m = Math.floor((l + r) /2); // 가운데 element
+
+//   if (rotated[m] === target) {
+//     return m;
+//   }
+
+//   if (rotated[l] <= rotated[m]) { // 가운데 element 앞쪽 탐색(while이 낫지 않을까?)
+//     if (rotated[l] <= target && target < rotated[m]) { // target이 왼쪽에 있다면 // 이게 재귀 호출이 일어나야 하는데?
+//       r = m -1; // 탐색 범위를 l부터 m - 1 까지로 줄인다(반으로 접는다 / 오른쪽을 버린다) // 이런 것들이 재귀
+//     } else {
+//       l = m + 1; // 탐색 범위를 m + 1부터 r 까지로 늘인다(반으로 접는다 / 왼쪽을 버린다)
+//     }
+//   } // 이 개념 참 재밌다..
+//   else { // if ( rotated[m] <= rotated[r]) {
+//     if (rotated[m] < target && target <= rotated[r]) {
+//       l = m + 1;
+//     } else {
+//       r = m - 1;
+//     }
+//   }
+// }
+// return null;
+// };
+
+👉
 const rotatedArraySearch = function (rotated, target) {
 
-    let l = 0;
-    let r = rotated.length - 1;
-    
-    while(l <= r) {
-      let m = Math.floor((l + r) /2);
-    
-      if (rotated[m] === target) {
-        return m;
-      }
-    
-      if (rotated[l] <= rotated[m]) { 
-        if (rotated[l] <= target && target < rotated[m]) { // target이 왼쪽에 있다면 // 이게 재귀 호출이 일어나야 하는데?
-          r = m -1; // 탐색 범위를 l부터 m - 1 까지로 줄인다(반으로 접는다 / 오른쪽을 버린다) // 이런 것들이 재귀
-        } else {
-          l = m + 1; // 탐색 범위를 m + 1부터 r 까지로 늘인다(반으로 접는다 / 왼쪽을 버린다)
-        }
-      }
-      else { // if ( rotated[m] <= rotated[r]) {
-        if (rotated[m] < target && target <= rotated[r]) {
-          l = m + 1;
-        } else {
-          r = m - 1;
-        }
-      }
+  let l = 0
+  let r = rotated.length -1;
+
+  while (l <= r) { // 크게 묶어주는 것
+    let m = Math.floor((l + r) /2);
+    // l, r, m은 인덱스다
+
+  if (rotated[m] === target) {
+    return m;
+  }
+
+  if (rotated[l] <= rotated[m]) { // 굳이 큰 if로 묶어준 이유는 아래 두 경우를 편하게 나누기 위해 // while보단 if가 맞다 // else를 써야하는 경우와 아닌 경우 잘 구분 // 직접 다시 풀어보니 느껴지는 것들
+    if (rotated[l] <= target && target < rotated[m]) {
+      r = m - 1;
+    } else {
+      l = m + 1;
     }
-    return null;
-};
+  }
+  else {
+    if (rotated[m] < target && target <= rotated[r]) {
+      l = m + 1;
+    } else {
+      r = m - 1;
+    }
+  } // 이제 이걸 재귀로 돌리고, 결과 값은 m이 target이 될 때 리턴
+} // 재귀가 저절로 시작..? 자기 자신이 리턴되지 않는데.. 재귀가 아닌가? // 좀 더 알아보자
+return null;
+}
